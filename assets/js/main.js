@@ -34,10 +34,10 @@
 
     $('.hero-area-slids').owlCarousel({
         items: 1,
-        loop: true,
+        loop: false,
         nav: false,
         doots: false,
-        autoplay: true,
+        autoplay: false,
         animateOut: 'fadeOutRight',
         animateIn: 'fadeIn'
 
