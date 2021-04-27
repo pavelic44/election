@@ -1,20 +1,49 @@
 (function ($) {
     "use strict";
 
-    $(document).ready(function(){   
+    if (!getCookie('cookie_policy')) {
         setTimeout(function () {
             $("#cookieConsent").fadeIn(200);
-         }, 4000);
-        $("#closeCookieConsent, .cookieConsentOK").click(function() {
-            $("#cookieConsent").fadeOut(200);
-        }); 
-    }); 
+        }, 4000);
+    }
+
+    $("#closeCookieConsent, .cookieConsentOK").click(function () {
+        $("#cookieConsent").fadeOut(200);
+
+        var today = new Date();
+        var expire = new Date();
+        expire.setTime(today.getTime() + 60000 * 60 * 2); // x 2 means how many hours
+
+        setCookie('cookie_policy', 'cookie_policy', 1);
+        getCookie('cookie_policy');
+    });
+
+    function setCookie(name,value,days) {
+        var expires = "";
+        if (days) {
+            var date = new Date();
+            date.setTime(date.getTime() + (days*24*60*60*1000));
+            expires = "; expires=" + date.toUTCString();
+        }
+        document.cookie = name + "=" + (value || "")  + expires + "; path=/";
+    }
+    
+    function getCookie(name) {
+        var nameEQ = name + "=";
+        var ca = document.cookie.split(';');
+        for(var i=0;i < ca.length;i++) {
+            var c = ca[i];
+            while (c.charAt(0)==' ') c = c.substring(1,c.length);
+            if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
+        }
+        return null;
+    }
 
     /*:::::::::::::::::::::::::::::::::::
             Navbar Area
     :::::::::::::::::::::::::::::::::::*/
 
-     // Navbar Sticky
+    // Navbar Sticky
     $(window).scroll(function () {
         var scroll = $(window).scrollTop();
 
@@ -104,10 +133,10 @@
         e.preventDefault();
         var formData = $(form).serialize();
         $.ajax({
-                type: 'POST',
-                url: $(form).attr('action'),
-                data: formData
-            })
+            type: 'POST',
+            url: $(form).attr('action'),
+            data: formData
+        })
             .done(function (response) {
                 $(formMessages).removeClass('error');
                 $(formMessages).addClass('success');
@@ -126,8 +155,8 @@
                 }
             });
     });
-    
-    
+
+
     /*::::::::::::::::::::::::::::::::::::
     Preloader
     ::::::::::::::::::::::::::::::::::::*/
