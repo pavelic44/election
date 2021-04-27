@@ -1509,9 +1509,9 @@ p.comment-date {
 .team-social {
     color: #000;
     position: absolute;
-    padding: 30px 20px;
+    text-align: center;
+    padding: 35px 20px;
     width: 100%;
-    text-align: justify;
     z-index: 1;
     -webkit-transition: .3s;
     transition: .3s;
