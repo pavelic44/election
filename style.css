@@ -686,7 +686,6 @@ ul ul {
 .why-me-right ul,
 .why-me-left ul {
     display: inline-block;
-    font-size: 1.2em;
     padding: 10px;
     text-align: left;
 }
@@ -694,7 +693,7 @@ ul ul {
 .why-me-right li,
 .why-me-left li {
     padding: 5px;
-    width: 500px;
+    width: 345px;
     text-align: justify;
 }
 
