@@ -1738,3 +1738,20 @@ input:-webkit-autofill {
 #cookieConsent a.cookieConsentOK:hover {
     background-color: #E0C91F;
 }
+
+h3.custom-header {
+    font-size: 4em;
+    font-style: italic;
+    margin-top: 60px;
+}
+
+.numberCircle {
+    text-align: center;
+    display: inline-block;
+    width: 1.6em;
+    height: 100%;
+    background-image: url("assets/images/circle.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
